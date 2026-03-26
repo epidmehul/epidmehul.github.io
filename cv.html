@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae — Mehul D. Patel, PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2e4a;
+      --navy-mid: #243d5c;
+      --navy-light: #2f5280;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #f8f7f4;
+      --off-white: #ede9e1;
+      --text: #1a2e4a;
+      --text-muted: #4a5e78;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background-color: var(--white);
+      color: var(--text);
+      min-height: 100vh;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 80%, rgba(47,82,128,0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 40px 40px;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: slideUp 0.6s 0.2s ease forwards;
+    }
+
+    .header-inner h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .header-inner .page-label {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── Navbar ── */
+    nav {
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+    }
+
+    .nav-inner a {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(248,247,244,0.7);
+      text-decoration: none;
+      padding: 14px 20px;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 20px; right: 20px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-inner a:hover { color: var(--white); }
+    .nav-inner a:hover::after { transform: scaleX(1); }
+    .nav-inner a.active { color: var(--white); }
+    .nav-inner a.active::after { transform: scaleX(1); }
+
+    /* ── Main Content ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    /* ── CV Section ── */
+    .cv-section {
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: slideUp 0.6s ease forwards;
+    }
+
+    .cv-section:nth-child(1) { animation-delay: 0.1s; }
+    .cv-section:nth-child(2) { animation-delay: 0.25s; }
+    .cv-section:nth-child(3) { animation-delay: 0.4s; }
+
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+      margin-bottom: 28px;
+    }
+
+    /* ── CV Entry ── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 0 28px;
+      margin-bottom: 28px;
+    }
+
+    .cv-entry:last-child { margin-bottom: 0; }
+
+    .cv-year {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+
+    .cv-details { }
+
+    .cv-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .cv-subtitle {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .cv-subtitle em {
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--off-white);
+      text-align: center;
+      padding: 28px 40px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner { padding: 36px 24px 32px; }
+      .nav-inner { padding: 0 16px; }
+      .nav-inner a { padding: 12px 14px; font-size: 0.72rem; }
+      main { padding: 40px 24px 60px; }
+      .cv-entry { grid-template-columns: 1fr; gap: 4px; }
+      .cv-year { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="page-label">Curriculum Vitae</p>
+      <h1>Mehul D. Patel, PhD</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="cv.html" class="active">Curriculum Vitae</a>
+      <a href="research.html">Research</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Education -->
+    <section class="cv-section">
+      <h2 class="section-heading">Education</h2>
+
+      <div class="cv-entry">
+        <div class="cv-year">August 2013</div>
+        <div class="cv-details">
+          <p class="cv-title">PhD in Epidemiology (Biostatistics minor)</p>
+          <p class="cv-subtitle">Department of Epidemiology, Gillings School of Global Public Health<br>University of North Carolina at Chapel Hill</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Positions -->
+    <section class="cv-section">
+      <h2 class="section-heading">Academic Positions</h2>
+
+      <div class="cv-entry">
+        <div class="cv-year">January 2026 –<br>Present</div>
+        <div class="cv-details">
+          <p class="cv-title">Associate Professor with Tenure (Proposed)</p>
+          <p class="cv-subtitle">Department of Emergency Medicine, School of Medicine<br>Duke University</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">2025</div>
+        <div class="cv-details">
+          <p class="cv-title">Associate Professor (with Tenure)</p>
+          <p class="cv-subtitle">Department of Emergency Medicine<br>University of North Carolina at Chapel Hill, Chapel Hill, NC</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">2019 – 2025</div>
+        <div class="cv-details">
+          <p class="cv-title">Assistant Professor (Tenure Track)</p>
+          <p class="cv-subtitle">Department of Emergency Medicine<br>University of North Carolina at Chapel Hill, Chapel Hill, NC</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">2016 – 2019</div>
+        <div class="cv-details">
+          <p class="cv-title">Research Assistant Professor</p>
+          <p class="cv-subtitle">Department of Emergency Medicine<br>University of North Carolina at Chapel Hill, Chapel Hill, NC</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Mehul D. Patel, PhD &nbsp;·&nbsp; Duke University
+  </footer>
+
+</body>
+</html>
