@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Mehul D. Patel, PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2e4a;
+      --navy-mid: #243d5c;
+      --navy-light: #2f5280;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #f8f7f4;
+      --off-white: #ede9e1;
+      --text: #1a2e4a;
+      --text-muted: #4a5e78;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background-color: var(--white);
+      color: var(--text);
+      min-height: 100vh;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 80%, rgba(47,82,128,0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 40px 40px;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: slideUp 0.6s 0.2s ease forwards;
+    }
+
+    .header-inner h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .page-label {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── Navbar ── */
+    nav {
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+    }
+
+    .nav-inner a {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(248,247,244,0.7);
+      text-decoration: none;
+      padding: 14px 20px;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 20px; right: 20px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-inner a:hover { color: var(--white); }
+    .nav-inner a:hover::after { transform: scaleX(1); }
+    .nav-inner a.active { color: var(--white); }
+    .nav-inner a.active::after { transform: scaleX(1); }
+
+    /* ── Main ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: slideUp 0.6s 0.1s ease forwards;
+    }
+
+    .pub-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .pub-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      border: 1.5px solid var(--off-white);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: slideUp 0.6s ease forwards;
+    }
+
+    .pub-card:nth-child(1) { animation-delay: 0.2s; }
+    .pub-card:nth-child(2) { animation-delay: 0.35s; }
+
+    .pub-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--navy);
+      transform: scaleY(0);
+      transition: transform 0.2s ease;
+      transform-origin: bottom;
+    }
+
+    .pub-card:hover {
+      border-color: var(--navy-light);
+      box-shadow: 0 4px 18px rgba(26,46,74,0.10);
+      transform: translateY(-2px);
+    }
+
+    .pub-card:hover::before { transform: scaleY(1); }
+
+    .pub-logo {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pub-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .pub-text { }
+
+    .pub-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: block;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .pub-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--off-white);
+      text-align: center;
+      padding: 28px 40px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner { padding: 36px 24px 32px; }
+      .nav-inner { padding: 0 16px; }
+      .nav-inner a { padding: 12px 14px; font-size: 0.72rem; }
+      main { padding: 40px 24px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="page-label">Research</p>
+      <h1>Mehul D. Patel, PhD</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="research.html" class="active">Research</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2 class="section-heading">Publications</h2>
+    <div class="pub-links">
+
+      <!-- Google Scholar -->
+      <a class="pub-card" href="https://scholar.google.com/citations?user=typGHC4AAAAJ&hl=en" target="_blank" rel="noopener">
+        <div class="pub-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" />
+        </div>
+        <div class="pub-text">
+          <span class="pub-label">Google Scholar</span>
+          <span class="pub-sub">Full publication list</span>
+        </div>
+      </a>
+
+      <!-- PubMed -->
+      <a class="pub-card" href="https://www.ncbi.nlm.nih.gov/myncbi/mehul.patel.1/bibliography/public/" target="_blank" rel="noopener">
+        <div class="pub-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/US-NLM-PubMed-Logo.svg" alt="PubMed" />
+        </div>
+        <div class="pub-text">
+          <span class="pub-label">PubMed</span>
+          <span class="pub-sub">NCBI bibliography</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Mehul D. Patel, PhD &nbsp;·&nbsp; Duke University
+  </footer>
+
+</body>
+</html>
