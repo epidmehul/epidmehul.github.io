@@ -235,7 +235,9 @@
     }
 
     .embrace-logo-link {
-      display: inline-block;
+      display: block;
+      width: 100%;
+      overflow: hidden;
       transition: opacity 0.2s, transform 0.2s;
     }
 
@@ -245,8 +247,10 @@
     }
 
     .embrace-logo-link img {
-      height: 60px;
-      width: auto;
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      object-position: center 45%;
       display: block;
     }
 
@@ -294,7 +298,7 @@
 
     <section class="embrace-section">
       <h2 class="section-heading">Research Project</h2>
-      <p class="embrace-text">I lead the Emergency Medical collaBorative on RegionAlized CarE (EMBRACE). Click on the logo for more information.</p>
+      <p class="embrace-text">I lead the <strong>Emergency Medical collaBorative on RegionAlized CarE (EMBRACE)</strong>. Click on the logo for more information.</p>
       <a class="embrace-logo-link" href="https://epidmehul.github.io/embrace-research/" target="_blank" rel="noopener">
         <img src="embrace-main.jpg" alt="EMBRACE — Emergency Medical collaBorative on RegionAlized CarE" />
       </a>
