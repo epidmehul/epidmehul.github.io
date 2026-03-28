@@ -219,6 +219,37 @@
       font-style: italic;
     }
 
+    /* ── EMBRACE Section ── */
+    .embrace-section {
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: slideUp 0.6s 0.1s ease forwards;
+    }
+
+    .embrace-text {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .embrace-logo-link {
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .embrace-logo-link:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .embrace-logo-link img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--off-white);
@@ -260,6 +291,15 @@
   </nav>
 
   <main>
+
+    <section class="embrace-section">
+      <h2 class="section-heading">Research Project</h2>
+      <p class="embrace-text">I lead the Emergency Medical collaBorative on RegionAlized CarE (EMBRACE). Click on the logo for more information.</p>
+      <a class="embrace-logo-link" href="https://epidmehul.github.io/embrace-research/" target="_blank" rel="noopener">
+        <img src="embrace-main.jpg" alt="EMBRACE — Emergency Medical collaBorative on RegionAlized CarE" />
+      </a>
+    </section>
+
     <h2 class="section-heading">Publications</h2>
     <div class="pub-links">
 
