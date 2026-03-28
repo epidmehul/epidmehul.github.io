@@ -126,7 +126,7 @@
     main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 56px 40px 80px;
+      padding: 28px 40px 80px;
     }
 
     /* ── CV Section ── */
@@ -202,6 +202,38 @@
       font-weight: 300;
     }
 
+    /* ── Download ── */
+    .download-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 40px 16px;
+      border-top: 1px solid var(--off-white);
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .download-btn:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+    }
+
+    .download-btn svg { width: 16px; height: 16px; fill: var(--white); }
+
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -233,6 +265,15 @@
       <a href="research.html">Research</a>
     </div>
   </nav>
+
+  <div class="download-section">
+    <a class="download-btn" href="CV_Patel_Mehul_3_27_2026.pdf" download>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/>
+      </svg>
+      Download CV
+    </a>
+  </div>
 
   <main>
 
